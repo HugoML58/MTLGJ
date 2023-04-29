@@ -18,9 +18,10 @@ public class PlayerInteract : MonoBehaviour
         {
             if(RaycastHitInteractable.transform.TryGetComponent(out Interactable interactable))
             {
-                Debug.Log("AAA");
+                UIManager.Instance.ShowInteractText(RaycastHitInteractable.transform.name);
             }
         }
+        else UIManager.Instance.ShowInteractText("");
 
         if (Input.Interact)
         {

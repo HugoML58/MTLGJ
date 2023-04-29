@@ -48,7 +48,6 @@ public class InputsListener : MonoBehaviour
     {
         if (ctx.control.device is Keyboard || ctx.control.device is Mouse)
         {
-            Debug.Log("Keyboard");
             _isController = false;
             OnKeyboardSelected?.Invoke(mouseXSensitivity, mouseYSensitivity);
         }
@@ -56,7 +55,6 @@ public class InputsListener : MonoBehaviour
         {
             if(!_isController)
             {
-                Debug.Log("Controller");
                 _isController = true;
                 OnControllerSelected?.Invoke(controllerXSensitivity, controllerYSensitivity);
             }
