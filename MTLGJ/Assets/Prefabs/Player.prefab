@@ -354,8 +354,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseXSensitivity: 0.6
   mouseYSensitivity: 1.2
-  controllerXSensitivity: 1.2
-  controllerYSensitivity: 2.4
+  controllerXSensitivity: 1
+  controllerYSensitivity: 2
   Movement: {x: 0, y: 0}
   CameraView: {x: 0, y: 0}
   Sprint: 0

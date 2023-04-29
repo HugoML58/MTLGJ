@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         if(lockCursor) Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Move();
         ClimbLadder();
@@ -48,11 +48,11 @@ public class PlayerMovement : MonoBehaviour
 
             if(inputs.Movement.y > 0)
             {
-                _velocity.y = climbSpeed * Time.deltaTime;
+                _velocity.y = climbSpeed;
             }
             else if (inputs.Movement.y < 0)
             {
-                _velocity.y = -climbSpeed * Time.deltaTime;
+                _velocity.y = -climbSpeed;
             }
             else
             {
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(!_isClimbingLadder)
         {
-            _velocity.y += gravity * Time.deltaTime;
+            _velocity.y += gravity;
             if (_isGrounded && _velocity.y < 0)
             {
                 _velocity.y = 0f;
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
             else _currentSpeed = walkSpeed;
         }
         
-        controller.Move(_direction * _currentSpeed * Time.deltaTime);
+        controller.Move(_direction * _currentSpeed);
     }
 
     private void Rotate()

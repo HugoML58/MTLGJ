@@ -810,6 +810,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2267972738326991309, guid: 7dc8d3652ef71854e9e54401ce7723e1,
+        type: 3}
+      propertyPath: runSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267972738326991309, guid: 7dc8d3652ef71854e9e54401ce7723e1,
+        type: 3}
+      propertyPath: walkSpeed
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2267972738326991309, guid: 7dc8d3652ef71854e9e54401ce7723e1,
+        type: 3}
+      propertyPath: climbSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2267972738326991311, guid: 7dc8d3652ef71854e9e54401ce7723e1,
         type: 3}
       propertyPath: m_Name
