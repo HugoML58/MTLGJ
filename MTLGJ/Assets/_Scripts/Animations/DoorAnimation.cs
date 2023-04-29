@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoorAnimation : MonoBehaviour
+public class DoorAnimation : MonoBehaviour, Interactable
 {
     Animator Animator;
 
@@ -16,12 +16,16 @@ public class DoorAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            // Animator.Play("DoorAnimation");
-            bool state = Animator.GetBool("Activate");
-            Debug.Log(state);
-            Animator.SetBool("Activate", !state);
-        }
+        // if (Input.GetKeyDown(KeyCode.K))
+        // {
+        //     // Animator.Play("DoorAnimation");
+        // }
+    }
+
+    public void Interact()
+    {
+        bool state = Animator.GetBool("Activate");
+        Debug.Log(state);
+        Animator.SetBool("Activate", !state);
     }
 }
