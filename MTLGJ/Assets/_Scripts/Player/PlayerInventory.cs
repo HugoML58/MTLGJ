@@ -29,6 +29,7 @@ public class PlayerInventory : MonoBehaviour
     public void AddToInventory(ItemSO item)
     {
         _inventory.Add(item);
+        UIManager.Instance.UpdateInventorySlotIcon(item, _inventory.Count - 1, false);
     }
 
     public void RemoveFromInventory(ItemSO item)
@@ -37,6 +38,7 @@ public class PlayerInventory : MonoBehaviour
         {
             if(item == _inventory[i])
             {
+                UIManager.Instance.UpdateInventorySlotIcon(item, _inventory.Count - 1, true);
                 _inventory.Remove(item);
             }
         }
