@@ -283,10 +283,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53026b7b18b4ca24180d738103914e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 13
-  runSpeed: 20
+  walkSpeed: 0.13
+  runSpeed: 0.2
   gravity: -0.0981
-  climbSpeed: 5
+  climbSpeed: 0.5
   groundCheck: {fileID: 2267972736986517156}
   groundLayer:
     serializedVersion: 2

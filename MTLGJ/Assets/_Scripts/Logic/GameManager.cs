@@ -11,10 +11,10 @@ public class GameManager : MonoBehaviour
     bool _hasOxygen;
     bool _isEquiped;
 
-    bool _hasRepaired01;
-    bool _hasRepaired02;
-    bool _hasRepaired03;
-    bool _hasRepaired04;
+    bool _hasRepairedPressure;
+    bool _hasRepairedFuel;
+    bool _hasRepairedO2Tube;
+    bool _hasRepairedElectronics;
     bool _hasRepairedHole;
     bool _hasRepairedRocket;
 
@@ -56,31 +56,31 @@ public class GameManager : MonoBehaviour
 
     public void SetHasRepaired01(bool state)
     {
-        _hasRepaired01 = state;
+        _hasRepairedPressure = state;
         CheckForAllRepair();
     }
 
     public void SetHasRepaired02(bool state)
     {
-        _hasRepaired02 = state;
+        _hasRepairedFuel = state;
         CheckForAllRepair();
     }
 
     public void SetHasRepaired03(bool state)
     {
-        _hasRepaired03 = state;
+        _hasRepairedO2Tube = state;
         CheckForAllRepair();
     }
 
     public void SetHasRepaired04(bool state)
     {
-        _hasRepaired04 = state;
+        _hasRepairedElectronics = state;
         CheckForAllRepair();
     }
 
     private void CheckForAllRepair()
     {
-        if(_hasRepairedHole && _hasRepaired01 && _hasRepaired02 && _hasRepaired03 && _hasRepaired04)
+        if(_hasRepairedHole && _hasRepairedPressure && _hasRepairedFuel && _hasRepairedO2Tube && _hasRepairedElectronics)
         {
             _hasRepairedRocket = true;
         }
