@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class timeManager : MonoBehaviour
+public class TimeManager : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -12,7 +12,7 @@ public class timeManager : MonoBehaviour
     }
 
     // Update is called once per frame
-     public float timeRemaining = 10;
+     public float timeRemaining = 25;
     void Update()
     {
         if (timeRemaining > 0)
