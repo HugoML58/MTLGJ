@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    //asaddad
     public static GameManager Instance { get; private set; }
 
     bool _hasSuit;
