@@ -4,6 +4,10 @@ using UnityEngine.InputSystem;
 
 public class InputsListener : MonoBehaviour
 {
+    [SerializeField] float mouseXSensitivity;
+    [SerializeField] float mouseYSensitivity;
+    [SerializeField] float controllerXSensitivity;
+    [SerializeField] float controllerYSensitivity;
     public Vector2 Movement;
     public Vector2 CameraView;
     public bool Sprint;
@@ -11,12 +15,19 @@ public class InputsListener : MonoBehaviour
     public bool Pause;
 
     bool _hasInteracted;
+    bool _isController;
 
     private PlayerInputActions _inputs;
 
+    public static event Action<float, float> OnKeyboardSelected;
+    public static event Action<float, float> OnControllerSelected;
+    
     private void Awake()
     {
         _inputs = new PlayerInputActions();
+
+        _inputs.Gameplay.Movement.performed += ctx => OnMove(ctx);
+        _inputs.Gameplay.Movement.canceled += ctx => OnMove(ctx);
 
         _inputs.Gameplay.Sprint.performed += ctx => OnSprint(ctx);
         _inputs.Gameplay.Sprint.canceled += ctx => SprintEnded(ctx);
@@ -24,6 +35,31 @@ public class InputsListener : MonoBehaviour
         _inputs.Gameplay.Interact.performed += ctx => OnInteract(ctx);
 
         _inputs.Gameplay.Pause.performed += ctx => OnPause(ctx);
+    }
+
+    private void GetDevice(InputAction.CallbackContext ctx)
+    {
+        if (ctx.control.device is Keyboard || ctx.control.device is Mouse)
+        {
+            Debug.Log("Keyboard");
+            _isController = false;
+            OnKeyboardSelected?.Invoke(mouseXSensitivity, mouseYSensitivity);
+        }
+        else
+        {
+            if(!_isController)
+            {
+                Debug.Log("Controller");
+                _isController = true;
+                OnControllerSelected?.Invoke(controllerXSensitivity, controllerYSensitivity);
+            }
+        }
+    }
+
+    private void OnMove(InputAction.CallbackContext ctx)
+    {
+        Movement = ctx.ReadValue<Vector2>();
+        GetDevice(ctx);
     }
 
     private void OnSprint(InputAction.CallbackContext ctx) { Sprint = true; }
@@ -36,7 +72,6 @@ public class InputsListener : MonoBehaviour
 
     private void Update()
     {
-        Movement = _inputs.Gameplay.Movement.ReadValue<Vector2>();
         CameraView = _inputs.Gameplay.View.ReadValue<Vector2>();
 
         Interact = false;

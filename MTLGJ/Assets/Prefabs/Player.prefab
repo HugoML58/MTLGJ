@@ -285,8 +285,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 13
   runSpeed: 20
-  jumpHeight: 5
   gravity: -0.0981
+  climbSpeed: 5
   groundCheck: {fileID: 2267972736986517156}
   groundLayer:
     serializedVersion: 2
@@ -307,7 +307,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.5
+  m_Radius: 0.65
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -339,6 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 956f772f13a89e54285c04ce0e631e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventorySlots: 3
 --- !u!114 &3598581858651740309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -351,6 +352,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73a698c4e50f9984a930c8f0aede8702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mouseXSensitivity: 0.6
+  mouseYSensitivity: 1.2
+  controllerXSensitivity: 1.2
+  controllerYSensitivity: 2.4
   Movement: {x: 0, y: 0}
   CameraView: {x: 0, y: 0}
   Sprint: 0
