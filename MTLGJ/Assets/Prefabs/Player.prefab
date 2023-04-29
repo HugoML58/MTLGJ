@@ -283,8 +283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53026b7b18b4ca24180d738103914e7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 0.13
-  runSpeed: 0.2
+  walkSpeed: 7.5
+  runSpeed: 16
   gravity: -0.0981
   climbSpeed: 0.5
   groundCheck: {fileID: 2267972736986517156}
@@ -327,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Input: {fileID: 3598581858651740309}
   interactRange: 2
+  Camera: {fileID: 2267972738235744821}
 --- !u!114 &1568212247003519674
 MonoBehaviour:
   m_ObjectHideFlags: 0

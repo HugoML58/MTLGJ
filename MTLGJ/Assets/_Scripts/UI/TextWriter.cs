@@ -5,12 +5,20 @@ using TMPro;
 
 public class TextWriter : MonoBehaviour
 {
+    [SerializeField] float showTextForSeconds;
     TextMeshProUGUI _textUI;
     string _text;
     float _timePerCharacters;
 
     float _timer;
+    float _secondTimer;
     int _characterCount;
+    bool _hasCompleted;
+
+    private void Start()
+    {
+        _secondTimer = showTextForSeconds;
+    }
 
     public void AddWriter(TextMeshProUGUI textUI, string text, float timePerCharacters)
     {
@@ -22,7 +30,7 @@ public class TextWriter : MonoBehaviour
 
     private void Update()
     {
-        if (_textUI != null)
+        if (_textUI != null && !_hasCompleted)
         {
             _timer -= Time.deltaTime;
             while (_timer <= 0f)
@@ -33,9 +41,22 @@ public class TextWriter : MonoBehaviour
 
                 if(_characterCount >= _text.Length)
                 {
-                    _textUI = null;
+                    _hasCompleted = true;
                     return;
                 }
+            }
+        }
+        
+        if(_hasCompleted)
+        {
+            _secondTimer -= Time.deltaTime;
+            if (_secondTimer <= 0f)
+            {
+                _hasCompleted = false;
+                _secondTimer = showTextForSeconds;
+                _textUI.text = "";
+                _textUI = null;
+                return;
             }
         }
     }
