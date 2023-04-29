@@ -31,10 +31,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if(lockCursor) Cursor.lockState = CursorLockMode.Locked;
     }
+    private void Update()
+    {
+        Move();
+    }
 
     private void FixedUpdate()
     {
-        Move();
         ClimbLadder();
         CheckGrounded();
         ApplyGravity();
@@ -97,7 +100,7 @@ public class PlayerMovement : MonoBehaviour
             else _currentSpeed = walkSpeed;
         }
         
-        controller.Move(_direction * _currentSpeed);
+        controller.Move(_direction * _currentSpeed * Time.deltaTime);
     }
 
     private void Rotate()

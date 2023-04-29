@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image equipedSuitIcon;
     [SerializeField] Image[] slotsIcons;
     [SerializeField] TextMeshProUGUI timeRemainingText;
+    [SerializeField] TextWriter timeRemainingTextWriter;
     
     private void Awake()
     {
@@ -43,6 +44,6 @@ public class UIManager : MonoBehaviour
 
     public void ShowRemainingTimeText(float time)
     {
-        timeRemainingText.SetText("{0} minutes remaining before launch", time);
+        timeRemainingTextWriter.AddWriter(timeRemainingText, string.Format("{0} minutes remaining before launch", time), 0.15f);
     }
 }

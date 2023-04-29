@@ -38,7 +38,8 @@ public class PlayerInventory : MonoBehaviour
         {
             if(item == _inventory[i])
             {
-                UIManager.Instance.UpdateInventorySlotIcon(item, _inventory.Count - 1, true);
+                int slot = i;
+                UIManager.Instance.UpdateInventorySlotIcon(item, slot, true);
                 _inventory.Remove(item);
             }
         }
