@@ -60,25 +60,25 @@ public class GameManager : MonoBehaviour
         CheckForAllRepair();
     }
 
-    public void SetHasRepaired01(bool state)
+    public void SetHasRepairedPressure(bool state)
     {
         _hasRepairedPressure = state;
         CheckForAllRepair();
     }
 
-    public void SetHasRepaired02(bool state)
+    public void SetHasRepairedFuel(bool state)
     {
         _hasRepairedFuel = state;
         CheckForAllRepair();
     }
 
-    public void SetHasRepaired03(bool state)
+    public void SetHasRepairedO2Tube(bool state)
     {
         _hasRepairedO2Tube = state;
         CheckForAllRepair();
     }
 
-    public void SetHasRepaired04(bool state)
+    public void SetHasRepairedElectronics(bool state)
     {
         _hasRepairedElectronics = state;
         CheckForAllRepair();

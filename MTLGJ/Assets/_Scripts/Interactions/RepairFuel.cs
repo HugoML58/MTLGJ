@@ -22,7 +22,7 @@ public class RepairFuel : MonoBehaviour, Interactable
             {
                 //TODO : Feedback?
                 Debug.Log("Fuel Repaired!");
-                GameManager.Instance.SetRepairedHole(true);
+                GameManager.Instance.SetHasRepairedFuel(true);
                 _playerInventory.RemoveFromInventory(neededObject);
                 return;
             }

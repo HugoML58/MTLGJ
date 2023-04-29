@@ -22,7 +22,7 @@ public class Repairoxygen : MonoBehaviour, Interactable
             {
                 //TODO : Feedback?
                 Debug.Log("O2 Repaired!");
-                GameManager.Instance.SetRepairedHole(true);
+                GameManager.Instance.SetHasRepairedO2Tube(true);
                 _playerInventory.RemoveFromInventory(neededObject);
                 return;
             }

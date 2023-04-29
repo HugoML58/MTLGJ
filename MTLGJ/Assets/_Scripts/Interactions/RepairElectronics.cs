@@ -22,7 +22,7 @@ public class RepairElectronics : MonoBehaviour, Interactable
             {
                 //TODO : Feedback?
                 Debug.Log("Elec Repaired!");
-                GameManager.Instance.SetRepairedHole(true);
+                GameManager.Instance.SetHasRepairedElectronics(true);
                 _playerInventory.RemoveFromInventory(neededObject);
                 return;
             }

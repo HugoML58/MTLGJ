@@ -22,7 +22,7 @@ public class RepairPressure : MonoBehaviour, Interactable
             {
                 //TODO : Feedback?
                 Debug.Log("Pressure Repaired!");
-                GameManager.Instance.SetRepairedHole(true);
+                GameManager.Instance.SetHasRepairedPressure(true);
                 _playerInventory.RemoveFromInventory(neededObject);
                 return;
             }
