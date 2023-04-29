@@ -34,7 +34,7 @@ public class InputsListener : MonoBehaviour
 
         _inputs.Gameplay.Interact.performed += ctx => OnInteract(ctx);
 
-        _inputs.Gameplay.Pause.performed += ctx => OnPause(ctx);
+        _inputs.Pause.Pause.performed += ctx => OnPause(ctx);
     }
 
     private void GetDevice(InputAction.CallbackContext ctx)
@@ -68,7 +68,23 @@ public class InputsListener : MonoBehaviour
 
     private void OnInteract(InputAction.CallbackContext ctx) { _hasInteracted = true; }
 
-    private void OnPause(InputAction.CallbackContext ctx) { Pause = !Pause; }
+    private void OnPause(InputAction.CallbackContext ctx)
+    {
+        GameManager.Instance.Pause();
+    }
+
+    public void ChangeInputState(bool state)
+    {
+        Pause = state;
+        if (Pause)
+        {
+            _inputs.Gameplay.Disable();
+        }
+        else
+        {
+            _inputs.Gameplay.Enable();
+        }
+    }
 
     private void Update()
     {
@@ -86,9 +102,16 @@ public class InputsListener : MonoBehaviour
     private void OnEnable()
     {
         _inputs.Gameplay.Enable();
+        _inputs.Pause.Enable();
+
+        GameManager.OnGamePaused += ChangeInputState;
     }
+
     private void OnDisable()
     {
         _inputs.Gameplay.Disable();
+        _inputs.Pause.Disable();
+
+        GameManager.OnGamePaused -= ChangeInputState;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,10 @@ public class GameManager : MonoBehaviour
     bool _hasRepairedElectronics;
     bool _hasRepairedHole;
     bool _hasRepairedRocket;
+
+    bool _isGamePaused;
+
+    public static event Action<bool> OnGamePaused;
 
     private void Awake()
     {
@@ -103,5 +108,20 @@ public class GameManager : MonoBehaviour
             Debug.Log("BOOM!");
             SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
+    }
+
+    public void Pause()
+    {
+        _isGamePaused = !_isGamePaused;
+
+        if( _isGamePaused )
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1; 
+        }
+        OnGamePaused?.Invoke(_isGamePaused);
     }
 }
