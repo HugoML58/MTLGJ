@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance { get; private set; }
 
+    [SerializeField] TextMeshProUGUI interactText;
     [SerializeField] Image equipedSuitIcon;
     [SerializeField] Image[] slotsIcons;
     [SerializeField] TextMeshProUGUI timeRemainingText;
@@ -45,5 +46,10 @@ public class UIManager : MonoBehaviour
     public void ShowRemainingTimeText(float time)
     {
         timeRemainingTextWriter.AddWriter(timeRemainingText, string.Format("{0} minutes remaining before launch", time), 0.15f);
+    }
+
+    public void ShowInteractText(string interactableName)
+    {
+        interactText.SetText(interactableName);
     }
 }
