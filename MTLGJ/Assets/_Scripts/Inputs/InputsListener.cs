@@ -8,6 +8,7 @@ public class InputsListener : MonoBehaviour
     [SerializeField] float mouseYSensitivity;
     [SerializeField] float controllerXSensitivity;
     [SerializeField] float controllerYSensitivity;
+    
     public Vector2 Movement;
     public Vector2 CameraView;
     public bool Sprint;
@@ -17,7 +18,7 @@ public class InputsListener : MonoBehaviour
     bool _hasInteracted;
     bool _isController;
 
-    private PlayerInputActions _inputs;
+    PlayerInputActions _inputs;
 
     public static event Action<float, float> OnKeyboardSelected;
     public static event Action<float, float> OnControllerSelected;
@@ -35,6 +36,12 @@ public class InputsListener : MonoBehaviour
         _inputs.Gameplay.Interact.performed += ctx => OnInteract(ctx);
 
         _inputs.Pause.Pause.performed += ctx => OnPause(ctx);
+    }
+
+    private void Start()
+    {
+        if (!_isController) OnKeyboardSelected?.Invoke(mouseXSensitivity, mouseYSensitivity);
+        else OnControllerSelected?.Invoke(controllerXSensitivity, controllerYSensitivity);
     }
 
     private void GetDevice(InputAction.CallbackContext ctx)
