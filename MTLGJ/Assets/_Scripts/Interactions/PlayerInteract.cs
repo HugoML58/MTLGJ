@@ -25,9 +25,9 @@ public class PlayerInteract : MonoBehaviour
             Collider[] colliderArray = Physics.OverlapSphere(transform.position, interactRange, interactable);
             for (int i = 0; i < colliderArray.Length; i++)
             {
-                if (colliderArray[i].TryGetComponent(out InteractTest interactTest))
+                if (colliderArray[i].TryGetComponent(out Interactable interactable))
                 { 
-                    interactTest.Interact();
+                    interactable.Interact();
                 }
                 Debug.Log(colliderArray[i].transform.gameObject.name);
             }
