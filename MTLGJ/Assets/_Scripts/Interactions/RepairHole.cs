@@ -3,25 +3,28 @@ using UnityEngine;
 public class RepairHole : MonoBehaviour, Interactable
 {
     [SerializeField] ItemSO neededObject;
-    bool _hasTheRightTool;
+
+    PlayerInventory _playerInventory;
+
+    private void Start()
+    {
+        _playerInventory = PlayerInventory.Instance;
+    }
 
     public void Interact()
     {
-        for (int i = 0; i < PlayerInventory.Instance.Inventory.Count; i++)
+        for (int i = 0; i < _playerInventory.GetInventory().Count; i++)
         {
-            if (PlayerInventory.Instance.Inventory[i] == neededObject)
+            if (_playerInventory.GetInventory()[i] == neededObject)
             {
-                _hasTheRightTool = true;
+                //TODO : Feedback?
                 Debug.Log("Hole Repaired!");
                 GameManager.Instance.SetRepairedHole(true);
-                PlayerInventory.Instance.RemoveFromInventory(neededObject);
+                _playerInventory.RemoveFromInventory(neededObject);
                 return;
             }
         }
 
-        if(!_hasTheRightTool)
-        {
-            Debug.Log("You don't have the right tool...");
-        }
+        Debug.Log("You don't have the right tool...");
     }
 }

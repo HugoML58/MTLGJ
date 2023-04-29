@@ -6,13 +6,16 @@ public class Item : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        Debug.Log("Picked up : " + gameObject.name);
-        Collect();
-    }
-
-    private void Collect()
-    {
-        PlayerInventory.Instance.AddToInventory(item);
-        Destroy(gameObject);
+        bool canAddToInventory = PlayerInventory.Instance.TryAddToInventory();
+        if (canAddToInventory)
+        {
+            Debug.Log("Picked up : " + gameObject.name);
+            PlayerInventory.Instance.AddToInventory(item);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Inventory is full");
+        }
     }
 }

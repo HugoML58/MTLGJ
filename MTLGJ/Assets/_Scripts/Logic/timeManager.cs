@@ -1,11 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField] float timeRemaining = 25;
+    [SerializeField] float timeRemaining = 1800;
 
     void Update()
     {
@@ -13,6 +12,7 @@ public class TimeManager : MonoBehaviour
 
         if (timeRemaining <= 0)
         {
+            //TODO : Execute 2 times?
             GameManager.Instance.EndGame();
         }
     }

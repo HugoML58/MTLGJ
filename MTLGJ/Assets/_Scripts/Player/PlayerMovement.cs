@@ -57,7 +57,6 @@ public class PlayerMovement : MonoBehaviour
         {
             _velocity.y = 0f;
         }
-        
     }
 
     private void Move()

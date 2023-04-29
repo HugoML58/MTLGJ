@@ -6,7 +6,9 @@ public class PlayerInventory : MonoBehaviour
 {
     public static PlayerInventory Instance { get; private set; }
 
-    public List<ItemSO> Inventory = new List<ItemSO>();
+    [SerializeField] int inventorySlots = 3;
+
+    private List<ItemSO> _inventory = new List<ItemSO>();
     
     private void Awake()
     {
@@ -18,19 +20,27 @@ public class PlayerInventory : MonoBehaviour
         #endregion
     }
 
+    public bool TryAddToInventory()
+    {
+        if(_inventory.Count > inventorySlots - 1) return false;
+        else return true;
+    }
+
     public void AddToInventory(ItemSO item)
     {
-        Inventory.Add(item);
+        _inventory.Add(item);
     }
 
     public void RemoveFromInventory(ItemSO item)
     {
-        for (int i = 0; i < Inventory.Count; i++)
+        for (int i = 0; i < _inventory.Count; i++)
         {
-            if(item == Inventory[i])
+            if(item == _inventory[i])
             {
-                Inventory.Remove(item);
+                _inventory.Remove(item);
             }
         }
     }
+
+    public List<ItemSO> GetInventory() { return _inventory; }
 }

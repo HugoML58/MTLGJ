@@ -7,6 +7,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    bool _hasSuit;
+    bool _hasOxygen;
+    bool _isEquiped;
+
     bool _hasRepaired01;
     bool _hasRepaired02;
     bool _hasRepaired03;
@@ -22,6 +26,26 @@ public class GameManager : MonoBehaviour
         else Instance = this;
 
         #endregion
+    }
+
+    public void SetSuit(bool state)
+    {
+        _hasSuit = state;
+        CheckEquiped();
+    }
+
+    public void SetOxygen(bool state)
+    {
+        _hasOxygen = state;
+        CheckEquiped();
+    }
+
+    private void CheckEquiped()
+    {
+        if(_hasSuit && _hasOxygen)
+        {
+            _isEquiped = true;
+        }
     }
 
     public void SetRepairedHole(bool state)
@@ -65,9 +89,14 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         //TODO : Add cinematics in function of the result
-        if (_hasRepairedRocket)
+        if (_hasRepairedRocket && _isEquiped)
         {
             Debug.Log("Yay!");
+        }
+        else if (!_isEquiped)
+        {
+            Debug.Log("Dead.");
+            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
         else
         {
