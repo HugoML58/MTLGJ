@@ -7,11 +7,9 @@ public class InputsListener : MonoBehaviour
     public Vector2 Movement;
     public Vector2 CameraView;
     public bool Sprint;
-    public bool Jump;
     public bool Interact;
     public bool Pause;
 
-    bool _hasJumped = false;
     bool _hasInteracted;
 
     private PlayerInputActions _inputs;
@@ -22,8 +20,6 @@ public class InputsListener : MonoBehaviour
 
         _inputs.Gameplay.Sprint.performed += ctx => OnSprint(ctx);
         _inputs.Gameplay.Sprint.canceled += ctx => SprintEnded(ctx);
-
-        _inputs.Gameplay.Jump.performed += ctx => OnJump(ctx);
 
         _inputs.Gameplay.Interact.performed += ctx => OnInteract(ctx);
 
@@ -43,14 +39,6 @@ public class InputsListener : MonoBehaviour
         Movement = _inputs.Gameplay.Movement.ReadValue<Vector2>();
         CameraView = _inputs.Gameplay.View.ReadValue<Vector2>();
 
-        Jump = false;
-
-        if (_hasJumped)
-        {
-            Jump = true;
-            _hasJumped = false;
-        }
-
         Interact = false;
 
         if (_hasInteracted)
@@ -59,8 +47,6 @@ public class InputsListener : MonoBehaviour
             _hasInteracted = false;
         }
     }
-
-    private void OnJump(InputAction.CallbackContext ctx) { _hasJumped = true; }
 
     private void OnEnable()
     {
