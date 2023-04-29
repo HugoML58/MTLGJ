@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
         if(_hasSuit && _hasOxygen)
         {
             _isEquiped = true;
+            UIManager.Instance.ShowEquipedSuitIcon();
         }
     }
 
