@@ -43,6 +43,6 @@ public class UIManager : MonoBehaviour
 
     public void ShowRemainingTimeText(float time)
     {
-        timeRemainingText.SetText("{0} minutes remaining", time);
+        timeRemainingText.SetText("{0} minutes remaining before launch", time);
     }
 }

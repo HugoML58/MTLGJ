@@ -5,7 +5,10 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     [SerializeField] float timeRemaining = 1800;
+    [SerializeField] float[] keyTimes;
 
+    int _nextKeyTimeValue;
+    bool _hasReachedLastKeyTime;
     bool _isTimerPause;
 
     void Update()
@@ -13,6 +16,16 @@ public class TimeManager : MonoBehaviour
         if(!_isTimerPause)
         {
             timeRemaining -= Time.deltaTime;
+
+            if(!_hasReachedLastKeyTime && timeRemaining <= keyTimes[_nextKeyTimeValue])
+            {
+                UIManager.Instance.ShowRemainingTimeText(keyTimes[_nextKeyTimeValue]);
+                _nextKeyTimeValue++;
+                if(_nextKeyTimeValue == keyTimes.Length)
+                {
+                    _hasReachedLastKeyTime = true;
+                }
+            }
 
             if (timeRemaining <= 0)
             {
