@@ -6,6 +6,7 @@ public class InputsListener : MonoBehaviour
 {
     public Vector2 Movement;
     public Vector2 CameraView;
+    public bool Sprint;
     public bool Jump;
     public bool Interact;
     public bool Pause;
@@ -19,12 +20,19 @@ public class InputsListener : MonoBehaviour
     {
         _inputs = new PlayerInputActions();
 
+        _inputs.Gameplay.Sprint.performed += ctx => OnSprint(ctx);
+        _inputs.Gameplay.Sprint.canceled += ctx => SprintEnded(ctx);
+
         _inputs.Gameplay.Jump.performed += ctx => OnJump(ctx);
 
         _inputs.Gameplay.Interact.performed += ctx => OnInteract(ctx);
 
         _inputs.Gameplay.Pause.performed += ctx => OnPause(ctx);
     }
+
+    private void OnSprint(InputAction.CallbackContext ctx) { Sprint = true; }
+
+    private void SprintEnded(InputAction.CallbackContext ctx) { Sprint = false; }
 
     private void OnInteract(InputAction.CallbackContext ctx) { _hasInteracted = true; }
 
