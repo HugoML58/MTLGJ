@@ -54,6 +54,7 @@ public class GameManager : MonoBehaviour
             _isEquiped = true;
             UIManager.Instance.ShowEquipedSuitIcon();
         }
+        checkComplete();
     }
 
     public void SetRepairedHole(bool state)
@@ -89,8 +90,7 @@ public class GameManager : MonoBehaviour
     private void CheckForAllRepair()
     {
         if (
-            _hasRepairedHole
-            && _hasRepairedPressure
+           _hasRepairedPressure
             && _hasRepairedFuel
             && _hasRepairedO2Tube
             && _hasRepairedElectronics
@@ -98,6 +98,16 @@ public class GameManager : MonoBehaviour
         {
             _hasRepairedRocket = true;
         }
+        checkComplete();
+    }
+
+    private void checkComplete()
+    {
+        if (_hasRepairedRocket && _hasSuit)
+        {
+            EndGame();
+        }
+
     }
 
     public void EndGame()

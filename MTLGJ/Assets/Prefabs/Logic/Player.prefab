@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Input: {fileID: 3598581858651740309}
-  interactRange: 2
+  interactRange: 5
   Camera: {fileID: 2267972738235744821}
 --- !u!114 &1568212247003519674
 MonoBehaviour:
