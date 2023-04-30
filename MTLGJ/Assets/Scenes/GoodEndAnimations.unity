@@ -13327,7 +13327,7 @@ GameObject:
   - component: {fileID: 682910777}
   - component: {fileID: 682910776}
   - component: {fileID: 682910775}
-  - component: {fileID: 682910774}
+  - component: {fileID: 682910778}
   m_Layer: 0
   m_Name: Vaisseau_Accessoire
   m_TagString: Untagged
@@ -13387,18 +13387,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &682910774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 682910770}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8d3be17a0d3c438194dbec805fd97fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &682910775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13433,6 +13421,18 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb9542aa9d4534c2e9fe63da71b082ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &682910778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682910770}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f36f34ec65674cd086ee9947138ceab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &698113836
