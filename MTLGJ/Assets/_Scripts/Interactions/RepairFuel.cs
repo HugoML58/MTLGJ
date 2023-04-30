@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RepairFuel : MonoBehaviour, Interactable
 {
+    [SerializeField] AudioClip clip;
     [SerializeField]
     ItemSO neededObject;
 
@@ -20,7 +21,7 @@ public class RepairFuel : MonoBehaviour, Interactable
         {
             if (_playerInventory.GetInventory()[i] == neededObject)
             {
-                //TODO : Feedback?
+                SFXManager.instance.PlaySFX(clip);
                 Debug.Log("Fuel Repaired!");
                 GameManager.Instance.SetHasRepairedFuel(true);
                 _playerInventory.RemoveFromInventory(neededObject);
@@ -28,6 +29,6 @@ public class RepairFuel : MonoBehaviour, Interactable
             }
         }
 
-        Debug.Log("You don't have the right tool...");
+        
     }
 }

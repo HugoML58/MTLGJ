@@ -4,25 +4,14 @@ using UnityEngine;
 
 public class RepairPressure : MonoBehaviour, Interactable
 {
-    [SerializeField]
-    ItemSO neededObject;
-
-    PlayerInventory _playerInventory;
-
-    private void Start()
-    {
-        _playerInventory = PlayerInventory.Instance;
-    }
+    [SerializeField] AudioClip clip;
+    [SerializeField] AudioSource source;
 
     public void Interact()
     {
-        for (int i = 0; i < _playerInventory.GetInventory().Count; i++)
-        {
-            //TODO : Feedback?
-            Debug.Log("Pressure Repaired!");
-            GameManager.Instance.SetHasRepairedPressure(true);
-            _playerInventory.RemoveFromInventory(neededObject);
-            return;
-        }
+        SFXManager.instance.PlaySFX(clip);
+        Destroy(source);
+        Debug.Log("Pressure Repaired!");
+        GameManager.Instance.SetHasRepairedPressure(true);
     }
 }

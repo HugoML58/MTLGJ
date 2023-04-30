@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RepairElectronics : MonoBehaviour, Interactable
 {
+    [SerializeField] AudioClip clip;
     [SerializeField]
     ItemSO neededObject;
 
@@ -20,7 +21,7 @@ public class RepairElectronics : MonoBehaviour, Interactable
         {
             if (_playerInventory.GetInventory()[i] == neededObject)
             {
-                //TODO : Feedback?
+                SFXManager.instance.PlaySFX(clip);
                 Debug.Log("Elec Repaired!");
                 GameManager.Instance.SetHasRepairedElectronics(true);
                 _playerInventory.RemoveFromInventory(neededObject);

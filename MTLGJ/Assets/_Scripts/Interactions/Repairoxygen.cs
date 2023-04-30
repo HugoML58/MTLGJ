@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Repairoxygen : MonoBehaviour, Interactable
 {
+    [SerializeField] AudioClip clip;
     [SerializeField]
     ItemSO neededObject;
 
@@ -20,14 +21,12 @@ public class Repairoxygen : MonoBehaviour, Interactable
         {
             if (_playerInventory.GetInventory()[i] == neededObject)
             {
-                //TODO : Feedback?
+                SFXManager.instance.PlaySFX(clip);
                 Debug.Log("O2 Repaired!");
                 GameManager.Instance.SetHasRepairedO2Tube(true);
                 _playerInventory.RemoveFromInventory(neededObject);
                 return;
             }
         }
-
-        Debug.Log("You don't have the right tool...");
     }
 }
