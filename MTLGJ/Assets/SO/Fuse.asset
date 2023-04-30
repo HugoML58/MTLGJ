@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa9678c6157f634391fe4bfa527ebf3, type: 3}
   m_Name: Fuse
   m_EditorClassIdentifier: 
-  ItemIcon: {fileID: 0}
+  ItemIcon: {fileID: 21300000, guid: 74a4ec248f029bc4a9b2aff2e7838c9b, type: 3}
