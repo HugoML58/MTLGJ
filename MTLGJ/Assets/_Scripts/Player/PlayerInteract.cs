@@ -9,11 +9,11 @@ public class PlayerInteract : MonoBehaviour
     float interactRange = 2f;
 
     [SerializeField]
-    Transform Camera;
+    Transform playerCamera;
 
     void Update()
     {
-        bool hitInteractable = Physics.Raycast(Camera.position, Camera.forward, out RaycastHit RaycastHitInteractable, interactRange);
+        bool hitInteractable = Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit RaycastHitInteractable, interactRange);
         if(hitInteractable)
         {
             if(RaycastHitInteractable.transform.TryGetComponent(out Interactable interactable))
@@ -25,7 +25,7 @@ public class PlayerInteract : MonoBehaviour
 
         if (Input.Interact)
         {
-            bool collision = Physics.Raycast(Camera.position, Camera.forward, out RaycastHit HitInfo, interactRange);
+            bool collision = Physics.Raycast(playerCamera.position, playerCamera.forward, out RaycastHit HitInfo, interactRange);
             if (collision)
             {
                 if (HitInfo.transform.TryGetComponent(out Interactable interactable))
@@ -40,7 +40,7 @@ public class PlayerInteract : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Ray ray = new Ray(Camera.position, Camera.forward*interactRange);
-        Gizmos.DrawRay(ray);
+        Gizmos.DrawLine(playerCamera.position, playerCamera.position + (playerCamera.forward * interactRange));
+
     }
 }
