@@ -6,19 +6,9 @@ public class BridgeController : MonoBehaviour, Interactable
 {
 
     [SerializeField] BridgeCollider BridgeCollider;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void Interact()
     {
-        
-    }
-
-    public void Interact() {
         BridgeCollider.ActivateBridge();
     }
 }

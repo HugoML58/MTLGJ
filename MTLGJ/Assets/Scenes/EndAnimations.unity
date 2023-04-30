@@ -21060,6 +21060,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showTextForSeconds: 0
+--- !u!1 &1853212481 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7126272031177890932, guid: 3ace8a94b90c3467a8197ef77fca7db7,
+    type: 3}
+  m_PrefabInstance: {fileID: 663589634}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1853212483
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853212481}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f10e5981afa7f6d41b211da41a10ce8a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &1962721722
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21153,6 +21179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bridge: {fileID: 2069722227}
+  bridgeAnimator: {fileID: 0}
 --- !u!65 &2069722227 stripped
 BoxCollider:
   m_CorrespondingSourceObject: {fileID: 858085195775872733, guid: 3ace8a94b90c3467a8197ef77fca7db7,

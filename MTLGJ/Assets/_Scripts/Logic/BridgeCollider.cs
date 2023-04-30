@@ -5,21 +5,11 @@ using UnityEngine;
 public class BridgeCollider : MonoBehaviour
 {
     [SerializeField] Collider Bridge;
+    [SerializeField] Animator bridgeAnimator;
     
-    
-    
-    public static bool BridgeDown;
-
-    // Start is called before the first frame update
-    void Start() { }
-
-    // Update is called once per frame
-    void Update()
+    public void ActivateBridge()
     {
-        
-    }
-
-    public void ActivateBridge() {
-        Bridge.enabled = !Bridge.enabled;
+        bridgeAnimator.SetBool("ActivateBridge", true);
+        Bridge.enabled = true;
     }
 }

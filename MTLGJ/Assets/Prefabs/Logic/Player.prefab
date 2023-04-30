@@ -285,8 +285,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 7.5
   runSpeed: 16
-  gravity: -0.0981
-  climbSpeed: 0.5
+  gravity: -0.035
+  climbSpeed: 0.25
   groundCheck: {fileID: 2267972736986517156}
   groundLayer:
     serializedVersion: 2
