@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     bool _isGamePaused;
 
+    [SerializeField] EndingAnimationCam ECam;
+
     public static event Action<bool> OnGamePaused;
 
     private void Awake()
@@ -99,16 +101,19 @@ public class GameManager : MonoBehaviour
         if (_hasRepairedRocket && _isEquiped)
         {
             Debug.Log("Yay!");
+            ECam.ActivateCam(true);
         }
         else if (!_isEquiped)
         {
             Debug.Log("Dead.");
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            ECam.ActivateCam(false);
+            // SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
         else
         {
             Debug.Log("BOOM!");
-            SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            ECam.ActivateCam(false);
+            // SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         }
     }
 

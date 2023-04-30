@@ -27,10 +27,11 @@ public class TimeManager : MonoBehaviour
                 }
             }
 
-            if (timeRemaining <= 0)
+            if (timeRemaining <= 0 && timeRemaining > -1)
             {
                 //TODO : Execute 2 times?
                 GameManager.Instance.EndGame();
+                this.enabled = false;
             }
         }
     }
