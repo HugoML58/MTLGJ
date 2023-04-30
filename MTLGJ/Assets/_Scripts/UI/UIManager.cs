@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image[] slotsIcons;
     [SerializeField] TextMeshProUGUI timeRemainingText;
     [SerializeField] TextWriter timeRemainingTextWriter;
+    [SerializeField] GameObject pauseMenu;
     
     private void Awake()
     {
@@ -51,5 +52,19 @@ public class UIManager : MonoBehaviour
     public void ShowInteractText(string interactableName)
     {
         interactText.SetText(interactableName);
+    }
+
+    public void ShowPauseMenu(bool state)
+    {
+        pauseMenu.SetActive(state);
+    }
+
+    private void OnEnable()
+    {
+        GameManager.OnGamePaused += ShowPauseMenu;
+    }
+    private void OnDisable()
+    {
+        GameManager.OnGamePaused -= ShowPauseMenu;
     }
 }

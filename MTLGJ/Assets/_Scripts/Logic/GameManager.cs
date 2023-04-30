@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //asaddad
     public static GameManager Instance { get; private set; }
 
     bool _hasSuit;
@@ -123,10 +122,12 @@ public class GameManager : MonoBehaviour
 
         if( _isGamePaused )
         {
+            Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
         }
         else
         {
+            Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1; 
         }
         OnGamePaused?.Invoke(_isGamePaused);
