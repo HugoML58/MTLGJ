@@ -46,7 +46,7 @@ public class UIManager : MonoBehaviour
 
     public void ShowRemainingTimeText(float time)
     {
-        timeRemainingTextWriter.AddWriter(timeRemainingText, string.Format("{0} minutes remaining before launch", time), 0.15f);
+        timeRemainingTextWriter.AddWriter(timeRemainingText, string.Format("{0} minutes remaining before launch", time / 60), 0.15f);
     }
 
     public void ShowInteractText(string interactableName)
