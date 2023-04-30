@@ -17,8 +17,6 @@ public class EndingAnimationCam : MonoBehaviour
         Animator.SetBool("GoodEnd", false);
         Animator.SetBool("BadEnd", false);
         rocketCam.GetComponent<CinemachineVirtualCamera>().enabled = false;
-        bool state = Animator.GetBool("GoodEnd");
-        Debug.Log(state);
     }
 
     // Update is called once per frame
@@ -27,14 +25,14 @@ public class EndingAnimationCam : MonoBehaviour
     public void ActivateCam(bool end)
     {
         rocketCam.GetComponent<CinemachineVirtualCamera>().enabled = true;
-        Animator.SetBool("BadEnd", true);
-        if (end)
+        if (!end)
         {
             Animator.SetBool("GoodEnd", true);
             Debug.Log("good end");
         }
         else
         {
+            Animator.SetBool("BadEnd", true);
             Debug.Log("bad end");
         }
     }
