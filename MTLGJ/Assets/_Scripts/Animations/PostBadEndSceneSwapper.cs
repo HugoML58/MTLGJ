@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PostAnimationSceneSwapper : MonoBehaviour
+public class PostBadEndSceneSwapper : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

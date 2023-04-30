@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,16 +21,16 @@ public class GameManager : MonoBehaviour
 
     bool _isGamePaused;
 
-    [SerializeField] EndingAnimationCam ECam;
-
     public static event Action<bool> OnGamePaused;
 
     private void Awake()
     {
         #region Singleton
 
-        if (Instance != null && Instance != this) Destroy(Instance);
-        else Instance = this;
+        if (Instance != null && Instance != this)
+            Destroy(Instance);
+        else
+            Instance = this;
 
         #endregion
     }
@@ -48,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     private void CheckEquiped()
     {
-        if(_hasSuit && _hasOxygen)
+        if (_hasSuit && _hasOxygen)
         {
             _isEquiped = true;
             UIManager.Instance.ShowEquipedSuitIcon();
@@ -87,7 +88,13 @@ public class GameManager : MonoBehaviour
 
     private void CheckForAllRepair()
     {
-        if(_hasRepairedHole && _hasRepairedPressure && _hasRepairedFuel && _hasRepairedO2Tube && _hasRepairedElectronics)
+        if (
+            _hasRepairedHole
+            && _hasRepairedPressure
+            && _hasRepairedFuel
+            && _hasRepairedO2Tube
+            && _hasRepairedElectronics
+        )
         {
             _hasRepairedRocket = true;
         }
@@ -99,13 +106,12 @@ public class GameManager : MonoBehaviour
         if (_hasRepairedRocket && _isEquiped)
         {
             Debug.Log("Yay!");
-            ECam.ActivateCam(true);
+            SceneManager.LoadSceneAsync(3);
         }
         else
         {
             Debug.Log("BOOM!");
-            ECam.ActivateCam(false);
-            // SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadSceneAsync(2);
         }
     }
 
@@ -113,7 +119,7 @@ public class GameManager : MonoBehaviour
     {
         _isGamePaused = !_isGamePaused;
 
-        if( _isGamePaused )
+        if (_isGamePaused)
         {
             Cursor.lockState = CursorLockMode.None;
             Time.timeScale = 0;
@@ -121,7 +127,7 @@ public class GameManager : MonoBehaviour
         else
         {
             Cursor.lockState = CursorLockMode.Locked;
-            Time.timeScale = 1; 
+            Time.timeScale = 1;
         }
         OnGamePaused?.Invoke(_isGamePaused);
     }
