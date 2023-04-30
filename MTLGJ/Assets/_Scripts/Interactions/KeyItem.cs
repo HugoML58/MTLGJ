@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KeyItem : MonoBehaviour, Interactable
 {
+    [SerializeField] AudioClip clip;
     [SerializeField] KeyItems keyItemType;
 
     GameManager _gameManager;
@@ -15,6 +16,7 @@ public class KeyItem : MonoBehaviour, Interactable
 
     public void Interact()
     {
+        SFXManager.instance.PlaySFX(clip);
         Debug.Log("Picked up : " + gameObject.name);
         switch (keyItemType)
         {
@@ -25,7 +27,7 @@ public class KeyItem : MonoBehaviour, Interactable
                 _gameManager.SetOxygen(true);
                 break;
         }
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 }
 

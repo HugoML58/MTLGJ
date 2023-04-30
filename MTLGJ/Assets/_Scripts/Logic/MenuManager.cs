@@ -19,4 +19,9 @@ public class MenuManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void Resume()
+    {
+        GameManager.Instance.Pause();
+    }
 }
