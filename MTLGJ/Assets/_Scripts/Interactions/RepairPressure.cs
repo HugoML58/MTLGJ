@@ -18,16 +18,11 @@ public class RepairPressure : MonoBehaviour, Interactable
     {
         for (int i = 0; i < _playerInventory.GetInventory().Count; i++)
         {
-            if (_playerInventory.GetInventory()[i] == neededObject)
-            {
-                //TODO : Feedback?
-                Debug.Log("Pressure Repaired!");
-                GameManager.Instance.SetHasRepairedPressure(true);
-                _playerInventory.RemoveFromInventory(neededObject);
-                return;
-            }
+            //TODO : Feedback?
+            Debug.Log("Pressure Repaired!");
+            GameManager.Instance.SetHasRepairedPressure(true);
+            _playerInventory.RemoveFromInventory(neededObject);
+            return;
         }
-
-        Debug.Log("You don't have the right tool...");
     }
 }
