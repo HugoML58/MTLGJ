@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571334, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21218,6 +21218,7 @@ GameObject:
   - component: {fileID: 7934782092989035197}
   - component: {fileID: 633674929}
   - component: {fileID: 633674930}
+  - component: {fileID: 7934782092989035198}
   m_Layer: 0
   m_Name: VAisseauComplet
   m_TagString: Untagged
@@ -21243,6 +21244,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 32.569}
+--- !u!114 &7934782092989035198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7301974270833174535}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8d3be17a0d3c438194dbec805fd97fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &7959987836912467704
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -28,7 +28,7 @@ public class EndingAnimationCam : MonoBehaviour
     {
         rocketCam.GetComponent<CinemachineVirtualCamera>().enabled = true;
         Animator.SetBool("BadEnd", true);
-        if (end)
+        if (!end)
         {
             Animator.SetBool("GoodEnd", true);
             Debug.Log("good end");
